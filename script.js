@@ -139,12 +139,46 @@ function generatePassword() {
   var includeSymbols = confirm("Do you want to include special characters?");
   // Recall function if user does not meet selection criteria.
   if (
-    includeUpperCase == false &&
-    includeLowerCase == false &&
-    includeNumbers == false &&
-    includeSymbols == false
+    includeUpperCase === false &&
+    includeLowerCase === false &&
+    includeNumbers === false &&
+    includeSymbols === false
   ) {
     alert("You must select at least one character type - Please try again.");
     generatePassword();
+  }
+  // Sample array from above arrays, sample bank, and final array
+  var sampleArray = [];
+  var arrayBank = [];
+  var finalPwd = [];
+
+  // Uppercase letters added
+  if (includeUpperCase == true) {
+    sampleArray.push(upperCase[Math.floor(Math.random() * upperCase.length)]);
+    console.log(sampleArray);
+    arrayBank = arrayBank.concat(upperCase);
+  }
+
+  // Lowercase letters added
+  if (includeLowerCase == true) {
+    sampleArray.push(lowerCase[Math.floor(Math.random() * lowerCase.length)]);
+    console.log(sampleArray);
+    arrayBank = arrayBank.concat(lowerCase);
+  }
+
+  // Numbers added
+  if (includeNumbers == true) {
+    sampleArray.push(number[Math.floor(Math.random() * number.length)]);
+    console.log(sampleArray);
+    arrayBank = arrayBank.concat(number);
+  }
+
+  // Symbols added
+  if (includeSymbols == true) {
+    sampleArray.push(
+      symbolCharacters[Math.floor(Math.random() * symbolCharacters.length)]
+    );
+    console.log(sampleArray);
+    arrayBank = arrayBank.concat(symbolCharacters);
   }
 }
