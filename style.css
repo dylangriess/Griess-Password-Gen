@@ -17,7 +17,7 @@ body {
   background-color: #f9fbfd;
 }
 
-.wrapper {
+.container {
   padding-top: 30px;
   padding-left: 20px;
   padding-right: 20px;
@@ -54,6 +54,15 @@ header {
   min-height: 100px;
 }
 
+.form {
+  display: grid;
+  grid-template-columns: auto auto;
+  row-gap: 1rem;
+  column-gap: 3rem;
+  justify-content: center;
+  align-items: center;
+}
+
 .card-footer {
   text-align: center;
 }
@@ -86,6 +95,10 @@ header {
   padding: 14px 34px;
   text-align: center;
   cursor: pointer;
+}
+
+.btn:active {
+  box-shadow: 0 0 10px #000 inset;
 }
 
 button[disabled] {
