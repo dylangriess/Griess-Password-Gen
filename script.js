@@ -1,22 +1,3 @@
-// // Assignment code here
-
-// // Get references to the #generate element
-// var generateBtn = document.querySelector("#generate");
-
-// // Write password to the #password input
-// function writePassword() {
-//   // Need to define function generatePassword()
-//   var password = generatePassword();
-
-//   // These lines of code are responsible for updating password in provided text box
-//   var passwordText = document.querySelector("#password");
-//   passwordText.value = password;
-// }
-
-// // Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
-
-// Assignment Code
 var generateBtn = document.querySelector("#generate");
 
 // Global Variables
@@ -147,10 +128,10 @@ function generatePassword() {
     alert("You must select at least one character type - Please try again.");
     generatePassword();
   }
-  // Sample array from above arrays, sample bank, and final array
+  // Sample array to pull from above, sample bank to store selected, and final array
   var sampleArray = [];
   var arrayBank = [];
-  var finalPwd = [];
+  var finalPassword = [];
 
   // Uppercase letters added
   if (includeUpperCase == true) {
@@ -181,4 +162,12 @@ function generatePassword() {
     console.log(sampleArray);
     arrayBank = arrayBank.concat(symbolCharacters);
   }
+
+  // Push characters from arrayBank into final password
+  for (i = 0; i < passwordLength; i++) {
+    finalPassword.push(arrayBank[Math.floor(Math.random() * arrayBank.length)]);
+    console.log("Your password is: " + finalPassword.join(""));
+  }
+  // Turns password into string, removes commas to final password return
+  return finalPassword.join("");
 }
