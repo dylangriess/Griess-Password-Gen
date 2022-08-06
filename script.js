@@ -77,7 +77,7 @@ var lowerCase = [
   "z",
 ];
 var number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-var specChar = [
+var symbolCharacters = [
   "!",
   "#",
   "$",
@@ -114,4 +114,37 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
   // The value of var passwordText should equal var password
   passwordText.value = password;
+}
+
+// Add event listener
+generateBtn.addEventListener("click", writePassword);
+
+// Declare a function, generatePassword.
+function generatePassword() {
+  // Prompt user to declare the value of passwordLength.
+  var passwordLength = prompt(
+    "How many characters long?" + "\n" + "Please enter a number between 8-128."
+  );
+
+  // If passwordLength is outside of 8-128 character range, alert user and return to beginning of generatePassword() function.
+  if (passwordLength < 8 || passwordLength > 128) {
+    alert("Your password must be between 8 and 128 characters long.");
+    generatePassword();
+  }
+
+  // Ask the user to declare the value of local boolean variables for the use of each type of character.
+  var includeUpperCase = confirm("Do you want to include uppercase letters?");
+  var includeLowerCase = confirm("Do you want to include lowercase letters?");
+  var includeNumbers = confirm("Do you want to include numbers?");
+  var includeSymbols = confirm("Do you want to include special characters?");
+  // Recall function if user does not meet selection criteria.
+  if (
+    includeUpperCase == false &&
+    includeLowerCase == false &&
+    includeNumbers == false &&
+    includeSymbols == false
+  ) {
+    alert("You must select at least one character type - Please try again.");
+    generatePassword();
+  }
 }
